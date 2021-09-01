@@ -1,3 +1,13 @@
-FROM tomcat:9
+FROM centos:latest
 MAINTAINER venkatesh.venkyrokzs@gmail.com
-COPY target/*.war /usr/local/tomcat/webapps/multibranch.war
+RUN yum install -y httpd \
+zip \
+unzip \
+curl
+WORKDIR /var/www/html/
+RUN curl https://www.free-css.com/assets/files/free-css-templates/download/page270/helpz.zip -o helpz.zip
+RUN unzip helpz.zip
+RUN cp -rvf free-charity-website-template/* .
+RUN rm -rf helpz.zip free-charity-website-template
+CMD ["/usr/bin/httpd", "-D", "FOREGROUND"]
+EXPOSE 80
