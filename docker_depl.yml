@@ -22,7 +22,7 @@
     - name: Start the container
       docker_container:
         name: multibranch
-        image: "venkypn/multibranch:final"
+        image: "venkypn/multibranch:fnl"
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
