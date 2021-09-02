@@ -9,5 +9,5 @@ RUN curl https://www.free-css.com/assets/files/free-css-templates/download/page2
 RUN unzip helpz.zip
 RUN cp -rvf free-charity-website-template/* .
 RUN rm -rf helpz.zip free-charity-website-template
-CMD ["/var/lib/httpd", "-D", "FOREGROUND"]
 EXPOSE 80
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
